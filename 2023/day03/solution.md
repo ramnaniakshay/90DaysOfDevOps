@@ -1,6 +1,7 @@
 1. To view what's written in a file.
 
-![Alt text](image.png)
+![image](https://github.com/ramnaniakshay/90DaysOfDevOps/assets/60702445/e3b2ef25-471e-4aa3-9f86-56faf159901c)
+
 
 2. To change the access permissions of files.
 
