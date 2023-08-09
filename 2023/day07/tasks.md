@@ -20,19 +20,25 @@
 
  1) You have to install docker and jenkins in your system from your terminal using package managers
 install docker
-$ sudo apt-get update
-$ sudo apt install docker.io
-$ sudo snap install docker
-$ docker --version
+    2  sudo apt-get update
+    3  sudo apt-get install ca-certificates curl gnupg
+    4  sudo install -m 0755 -d /etc/apt/keyrings
+    5  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    6  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    7  echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    8  sudo apt-get update
+    9  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   10  docker --version
+   11  sudo apt update
+   12  sudo apt install openjdk-17-jre
+   13  java -version
+   14  curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+   15  echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+   16  sudo apt-get update
+   17  sudo apt-get install jenkins
+   18  jenkins --version
 
-insatll jenkins
-$ curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
-  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-$echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-$sudo apt-get update
-$sudo apt-get install jenkins
 
  2) Write a small blog or article to install these tools using package managers on Ubuntu and CentOS
 
@@ -46,8 +52,20 @@ $sudo apt-get install jenkins
 
  1) check the status of docker service in your system (make sure you completed above tasks, else docker won't be installed)
 sudo systemctl status docker
+
+![image](https://github.com/ramnaniakshay/90DaysOfDevOps/assets/60702445/fd15ed52-78d4-4322-8d0f-a8a31efc570d)
+
+
  2) stop the service jenkins and post before and after screenshots
+
+![image](https://github.com/ramnaniakshay/90DaysOfDevOps/assets/60702445/dde08119-04c3-4aae-8b69-4ea365522bfc)
+
+
 sudo systemctl stop jenkins
+
+![image](https://github.com/ramnaniakshay/90DaysOfDevOps/assets/60702445/c8c7b8f5-805f-4800-bdd5-19811d402581)
+
+
  3) read about the commands systemctl vs service
 
  eg. `systemctl status docker` vs `service docker status`
